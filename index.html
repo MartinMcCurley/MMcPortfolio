@@ -14,6 +14,7 @@
     <meta content="summary_large_image" name="twitter:card">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link href="css/main.css" rel="stylesheet" type="text/css">
+    <link href="css/custom.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
     <script src="js/webfont.js" type="text/javascript" defer></script>
@@ -25,7 +26,7 @@
         });
     </script>
     <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
-    <link href="images/webclip.png" rel="apple-touch-icon">
+    <link href="images/wch-webclip.png" rel="apple-touch-icon">
     
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
@@ -255,10 +256,10 @@
         </a>
     </div>
     
-    <div class="locomotive-scroll">
+    <div class="locomotive-scroll" data-scroll-container>
         <div class="section-hero">
             <div class="hero-fade">
-                <div class="scroll-wrapper">
+                <div class="scroll-wrapper" data-scroll data-scroll-speed="1">
                     <img src="images/icon-arrow-down.svg" loading="lazy" alt="" class="icon-scroll-down">
                 </div>
             </div>
@@ -328,7 +329,7 @@
         <div class="section-projects">
             <div class="container-projects">
                 <!-- Project 1 -->
-                <div class="project-card-outline">
+                <div class="project-card-outline" data-scroll data-scroll-speed="0.1">
                     <div class="glare-item-top outer-edge"></div>
                     <a href="/project-1" class="project-card w-inline-block">
                         <div class="glare-item-top inner-edge"></div>
@@ -353,7 +354,7 @@
                 </div>
                 
                 <!-- Project 2 -->
-                <div class="project-card-outline">
+                <div class="project-card-outline" data-scroll data-scroll-speed="0.2">
                     <div class="glare-item-top outer-edge"></div>
                     <a href="/project-2" class="project-card w-inline-block">
                         <div class="glare-item-top inner-edge"></div>
@@ -378,7 +379,7 @@
                 </div>
                 
                 <!-- Project 3 -->
-                <div class="project-card-outline">
+                <div class="project-card-outline" data-scroll data-scroll-speed="0.3">
                     <div class="glare-item-top outer-edge"></div>
                     <a href="/project-3" class="project-card w-inline-block">
                         <div class="glare-item-top inner-edge"></div>
@@ -455,27 +456,7 @@
     
     <link rel="stylesheet" href="css/locomotive-scroll.css">
     <script src="js/locomotive-scroll.min.js" defer></script>
-    <script>
-        // Initialize locomotive scroll after a short delay
-        document.addEventListener('DOMContentLoaded', function() {
-            // Short delay to ensure DOM is fully loaded
-            setTimeout(function() {
-                const locoScroll = new LocomotiveScroll({
-                    el: document.querySelector(".locomotive-scroll"),
-                    smooth: true,
-                    multiplier: 1,
-                });
-                
-                // Update scroll after content is loaded
-                setTimeout(function() {
-                    locoScroll.update();
-                }, 1000);
-                
-                // Make locoScroll available globally
-                window.locoScroll = locoScroll;
-            }, 500);
-        });
-    </script>
+    <script src="js/locomotive-init.js" defer></script>
 
     <style>
         .c-scrollbar_thumb {
@@ -491,6 +472,11 @@
             right: 0;
             top: 0;
             bottom: 0;  
+        }
+        
+        .locomotive-scroll {
+            height: 100%;
+            width: 100%;
         }
     </style>
 
@@ -533,6 +519,13 @@
             0% { opacity: 0.6; }
             50% { opacity: 1; }
             100% { opacity: 0.6; }
+        }
+        
+        /* Replace automatic animation with scroll-based movement */
+        .shine-wrapper {
+            /* Remove the automatic animation */
+            transform: rotate(15deg);
+            transition: transform 0.5s ease-out;
         }
     </style>
 
