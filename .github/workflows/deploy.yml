@@ -36,19 +36,14 @@ jobs:
           test -f out/.htaccess && echo "✓ .htaccess found" || echo "✗ .htaccess missing"
           test -d out/_next && echo "✓ _next directory found" || echo "✗ _next directory missing"
 
-      - name: Deploy to GoDaddy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      - name: Deploy to GoDaddy via SFTP
+        uses: pressidium/lftp-mirror-action@v1
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./out/
-          server-dir: ${{ secrets.FTP_REMOTE_DIR || './public_html/' }}
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
-            **/.env*
-            **/README.md
+          host: ${{ secrets.FTP_SERVER }}
+          user: ${{ secrets.FTP_USERNAME }}
+          pass: ${{ secrets.FTP_PASSWORD }}
+          localDir: 'out'
+          remoteDir: 'public_html'
+          options: '--verbose --transfer-all --delete --parallel=10'
           # Clean slate option - USE WITH CAUTION
           # dangerous-clean-slate: true 
