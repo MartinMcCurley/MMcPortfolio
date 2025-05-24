@@ -1,12 +1,35 @@
+'use client';
+
+import { useState } from 'react';
 import { ClientWrapper } from './components/ClientWrapper';
+import { CinematicIntro } from './components/CinematicIntro';
 
 export default function Home() {
+  const [showIntro, setShowIntro] = useState(true);
+
+  const handleIntroComplete = () => {
+    setShowIntro(false);
+  };
+
+  // Skip intro on click or spacebar
+  const handleSkipIntro = () => {
+    setShowIntro(false);
+  };
+
+  if (showIntro) {
+    return (
+      <div onClick={handleSkipIntro} onKeyDown={(e) => e.key === ' ' && handleSkipIntro()}>
+        <CinematicIntro onComplete={handleIntroComplete} />
+      </div>
+    );
+  }
+
   return (
     <ClientWrapper>
       <div className="min-h-screen bg-bg-primary flex items-center justify-center p-6">
         <div className="max-w-4xl mx-auto text-center space-y-12">
           
-          {/* Main Hero */}
+          {/* Main Hero with hook */}
           <div className="space-y-6">
             <h1 className="text-hero font-bold text-text-primary mb-4">
               Martin McCurley
@@ -15,7 +38,7 @@ export default function Home() {
               Software Developer
             </p>
             <p className="text-body text-text-secondary max-w-2xl mx-auto leading-relaxed">
-              Portfolio website coming soon. Building something amazing with modern web technologies.
+              You're right. Most portfolios <em>are</em> boring. Let's build something different together.
             </p>
           </div>
 
@@ -44,7 +67,7 @@ export default function Home() {
               </div>
               <h3 className="text-subsection font-semibold text-text-primary mb-4">Professional Experience</h3>
               <p className="text-body text-text-secondary leading-relaxed">
-                Years of experience building scalable applications and leading development teams
+                First Class Honours in Software Development, now AI-powered and ready to innovate
               </p>
             </div>
 
@@ -55,9 +78,9 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
                 </svg>
               </div>
-              <h3 className="text-subsection font-semibold text-text-primary mb-4">Innovation Focus</h3>
+              <h3 className="text-subsection font-semibold text-text-primary mb-4">Beyond the Ordinary</h3>
               <p className="text-body text-text-secondary leading-relaxed">
-                Passionate about cutting-edge technologies and creating exceptional user experiences
+                Creating exceptional digital experiences that users actually remember and enjoy
               </p>
             </div>
 
@@ -67,10 +90,10 @@ export default function Home() {
           <div className="mt-16">
             <div className="bg-bg-secondary border border-border-subtle rounded-xl p-8 shadow-card max-w-2xl mx-auto">
               <h3 className="text-subsection font-semibold text-accent-primary mb-4">
-                Get In Touch
+                Let's Create Something Amazing
               </h3>
               <p className="text-body text-text-secondary mb-6 leading-relaxed">
-                Interested in discussing opportunities or collaborating on projects?
+                Ready to discuss a project that breaks the mold? Let's build something people will actually want to use.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a 
@@ -100,7 +123,7 @@ export default function Home() {
           {/* Footer Note */}
           <div className="mt-12 pt-8 border-t border-border-subtle">
             <p className="text-small text-text-muted">
-              Portfolio website in development • Built with Next.js, TypeScript & TailwindCSS
+              Full portfolio launching soon • Built with Next.js, TypeScript & TailwindCSS
             </p>
           </div>
 
