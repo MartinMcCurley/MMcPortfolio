@@ -11,11 +11,6 @@ const nextConfig: NextConfig = {
   
   // Optional: Add trailing slash for better compatibility with static hosting
   trailingSlash: true,
-  
-  // Disable Node.js specific features for static export
-  experimental: {
-    esmExternals: false,
-  },
 };
 
 export default nextConfig;
