@@ -4,32 +4,59 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Design System CSS Variables */
+/* Design System CSS Variables - Enhanced Color Palette */
 :root {
-  /* Background colors */
-  --bg-primary: #0d0d0d;
-  --bg-secondary: #1a1a1a;
-  --bg-tertiary: #2e2e2e;
-  --bg-quaternary: #3f3f3f;
+  /* Background colors - Enhanced from color-palette.md */
+  --bg-primary: #0d0d0d;      /* Jet Black - Background / Base layer */
+  --bg-secondary: #1a1a1a;    /* Charcoal Gray - Main hex surfaces */
+  --bg-tertiary: #2e2e2e;     /* Slate Gray - Edge shadows / variation */
+  --bg-quaternary: #3f3f3f;   /* Steel Gray - Layer separation / contrast */
   
-  /* Text colors */
-  --text-primary: #ffffff;
-  --text-secondary: #cccccc;
-  --text-muted: #999999;
+  /* Text colors - High contrast for accessibility */
+  --text-primary: #ffffff;    /* Pure white for main text on dark backgrounds */
+  --text-secondary: #e0e0e0;  /* Light gray for secondary text */
+  --text-muted: #a0a0a0;      /* Medium gray for captions/metadata */
   
-  /* Accent colors */
-  --accent-primary: #ff5c00;
-  --accent-secondary: #ff7a33;
-  --accent-hover: #ff8c4d;
+  /* Accent colors - Orange highlights from established palette */
+  --accent-primary: #ff5c00;    /* Neon Orange - Highlight edges / accents */
+  --accent-secondary: #ff7300;  /* Lighter orange for secondary highlights */
+  --accent-hover: #ff8533;      /* Even lighter orange for hover states */
   
   /* Utility colors */
-  --border-subtle: #333333;
-  --shadow-light: rgba(255, 92, 0, 0.1);
-  --shadow-dark: rgba(0, 0, 0, 0.3);
+  --border-subtle: #2e2e2e;           /* Slate Gray for subtle borders */
+  --border-accent: #ff5c00;           /* Orange for highlighted borders */
+  --shadow-light: rgba(255, 92, 0, 0.1);   /* Subtle orange glow */
+  --shadow-dark: rgba(0, 0, 0, 0.5);       /* Dark shadows */
   --shadow-glow: 0 0 20px rgba(255, 92, 0, 0.3);
+
+  /* Typography System - Based on typography-system.md */
+  --font-size-hero: 3.5rem;      /* 56px - Hero name/title */
+  --font-size-hero-mobile: 2.5rem; /* 40px - Mobile hero */
+  --font-size-section: 2.5rem;   /* 40px - Section headings */
+  --font-size-section-mobile: 2rem; /* 32px - Mobile sections */
+  --font-size-subsection: 1.75rem; /* 28px - Subsection headings */
+  --font-size-body: 1.125rem;    /* 18px - Main body text */
+  --font-size-body-mobile: 1rem; /* 16px - Mobile body text */
+  --font-size-small: 0.875rem;   /* 14px - Captions, metadata */
+
+  /* Font weights */
+  --font-weight-thin: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Line heights & spacing */
+  --line-height-tight: 1.2;    /* Headings */
+  --line-height-normal: 1.5;   /* Body text */
+  --line-height-relaxed: 1.75; /* Large text blocks */
+
+  --letter-spacing-tight: -0.025em; /* Large headings */
+  --letter-spacing-normal: 0;       /* Body text */
+  --letter-spacing-wide: 0.025em;   /* Small text, buttons */
 }
 
-/* Base styles */
+/* Base styles - Enhanced for performance */
 * {
   box-sizing: border-box;
   padding: 0;
@@ -42,43 +69,87 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  /* Performance: Optimize font rendering */
+  font-display: swap;
 }
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  line-height: 1.6;
-  font-weight: 400;
+  line-height: var(--line-height-normal);
+  font-weight: var(--font-weight-normal);
+  font-size: var(--font-size-body);
   min-height: 100vh;
   overflow-x: hidden;
   /* Performance: Improve text rendering */
-  font-display: swap;
-  font-feature-settings: 'kern' 1;
+  font-feature-settings: 'kern' 1, 'liga' 1;
+  text-rendering: optimizeLegibility;
 }
 
-/* Typography base styles with improved accessibility */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
-  line-height: 1.2;
-  /* Accessibility: Better letter spacing for readability */
-  letter-spacing: -0.025em;
+/* Typography base styles with improved hierarchy */
+h1 {
+  font-size: var(--font-size-hero);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
 }
 
+h2 {
+  font-size: var(--font-size-section);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+h3 {
+  font-size: var(--font-size-subsection);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-tight);
+}
+
+h4, h5, h6 {
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-tight);
+}
+
+p {
+  line-height: var(--line-height-relaxed);
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+  h1 {
+    font-size: var(--font-size-hero-mobile);
+  }
+  
+  h2 {
+    font-size: var(--font-size-section-mobile);
+  }
+  
+  body {
+    font-size: var(--font-size-body-mobile);
+  }
+}
+
+/* Enhanced link styles with better accessibility */
 a {
   color: var(--accent-primary);
   text-decoration: none;
-  transition: color 0.3s ease;
-  /* Accessibility: Underline for better recognition */
+  transition: all 0.3s ease;
+  /* Accessibility: Better underline behavior */
   text-decoration-skip-ink: auto;
+  /* Performance: GPU acceleration */
+  transform: translateZ(0);
 }
 
 a:hover {
   color: var(--accent-hover);
   text-decoration: underline;
+  text-underline-offset: 0.25em;
 }
 
-/* Accessibility: Better focus indicators */
+/* Enhanced focus indicators for accessibility */
 a:focus-visible,
 button:focus-visible,
 [tabindex]:focus-visible {
@@ -86,42 +157,80 @@ button:focus-visible,
   outline-offset: 2px;
   border-radius: 4px;
   box-shadow: 0 0 0 4px rgba(255, 92, 0, 0.2);
+  /* Performance: Avoid layout shifts */
+  transition: box-shadow 0.2s ease;
 }
 
 /* Selection styling */
 ::selection {
   background: var(--accent-primary);
   color: var(--bg-primary);
+  text-shadow: none;
 }
 
-/* Scrollbar styling for webkit browsers */
+/* Enhanced scrollbar styling */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
   background: var(--bg-secondary);
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--border-subtle);
   border-radius: 4px;
+  transition: background 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent-primary);
 }
 
-/* Performance: GPU acceleration for animations */
+/* Performance: GPU acceleration for animations with contain */
 .animate-fade-in,
 .animate-slide-up,
 .animate-bounce,
 .animate-pulse {
   transform: translateZ(0);
   will-change: transform, opacity;
+  contain: layout style paint;
 }
 
-/* Accessibility: Reduced motion support */
+/* Enhanced animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+/* Accessibility: Comprehensive reduced motion support */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -132,11 +241,15 @@ button:focus-visible,
     scroll-behavior: auto !important;
   }
   
-  /* Keep essential animations but make them instant */
-  .animate-bounce {
+  /* Disable transform animations but keep opacity for accessibility */
+  .animate-fade-in,
+  .animate-slide-up {
     animation: none;
+    opacity: 1;
+    transform: none;
   }
   
+  .animate-bounce,
   .animate-pulse {
     animation: none;
   }
@@ -147,8 +260,10 @@ button:focus-visible,
   :root {
     --text-primary: #ffffff;
     --text-secondary: #ffffff;
+    --text-muted: #cccccc;
     --bg-primary: #000000;
     --bg-secondary: #000000;
+    --bg-tertiary: #111111;
     --accent-primary: #ffff00;
     --accent-hover: #ffff99;
     --border-subtle: #ffffff;
@@ -162,20 +277,26 @@ img {
   /* Performance: Optimize image decoding */
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
+  /* Lazy loading support */
+  loading: lazy;
 }
 
-/* Accessibility: Skip to main content link */
+/* Enhanced skip link for better accessibility */
 .skip-to-main {
   position: absolute;
   top: -40px;
   left: 6px;
   background: var(--accent-primary);
   color: var(--bg-primary);
-  padding: 8px;
+  padding: 12px 16px;
   text-decoration: none;
-  border-radius: 4px;
+  border-radius: 6px;
   z-index: 1000;
-  font-weight: 600;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-small);
+  letter-spacing: var(--letter-spacing-wide);
+  transition: top 0.3s ease;
+  box-shadow: var(--shadow-glow);
 }
 
 .skip-to-main:focus {
@@ -185,4 +306,91 @@ img {
 /* Performance: Contain layout for better rendering */
 section {
   contain: layout style paint;
+}
+
+/* Utility classes for consistent spacing */
+.section-padding {
+  padding: 5rem 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 3rem 1rem;
+  }
+}
+
+/* Button component styles */
+.btn-primary {
+  background: var(--accent-primary);
+  color: var(--bg-primary);
+  font-weight: var(--font-weight-medium);
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-size: var(--font-size-body);
+  letter-spacing: var(--letter-spacing-wide);
+  transform: translateZ(0);
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-primary);
+  font-weight: var(--font-weight-medium);
+  padding: 0.75rem 2rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-size: var(--font-size-body);
+  letter-spacing: var(--letter-spacing-wide);
+  transform: translateZ(0);
+}
+
+.btn-secondary:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-1px);
+}
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Print styles for better resume/CV printing */
+@media print {
+  * {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+  
+  a {
+    text-decoration: underline;
+  }
+  
+  .section-padding {
+    padding: 1rem 0;
+  }
 }
