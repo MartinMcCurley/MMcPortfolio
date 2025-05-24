@@ -7,24 +7,26 @@
 /* Design System CSS Variables */
 :root {
   /* Background colors */
-  --bg-primary: #1A1A1A;
-  --bg-secondary: #202020;
-  --bg-tertiary: #252525;
+  --bg-primary: #0d0d0d;
+  --bg-secondary: #1a1a1a;
+  --bg-tertiary: #2e2e2e;
+  --bg-quaternary: #3f3f3f;
   
   /* Text colors */
-  --text-primary: #EEEEEE;
-  --text-secondary: #B3B3B3;
-  --text-muted: #808080;
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --text-muted: #999999;
   
   /* Accent colors */
-  --accent-primary: #3291FF;
-  --accent-secondary: #00D9FF;
-  --accent-hover: #5AA3FF;
+  --accent-primary: #ff5c00;
+  --accent-secondary: #ff7a33;
+  --accent-hover: #ff8c4d;
   
   /* Utility colors */
   --border-subtle: #333333;
-  --shadow-light: rgba(50, 145, 255, 0.1);
+  --shadow-light: rgba(255, 92, 0, 0.1);
   --shadow-dark: rgba(0, 0, 0, 0.3);
+  --shadow-glow: 0 0 20px rgba(255, 92, 0, 0.3);
 }
 
 /* Base styles */
@@ -36,32 +38,54 @@
 
 html {
   scroll-behavior: smooth;
+  /* Performance: Enable hardware acceleration */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  line-height: 1.5;
+  line-height: 1.6;
   font-weight: 400;
   min-height: 100vh;
   overflow-x: hidden;
+  /* Performance: Improve text rendering */
+  font-display: swap;
+  font-feature-settings: 'kern' 1;
 }
 
-/* Typography base styles */
+/* Typography base styles with improved accessibility */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   line-height: 1.2;
+  /* Accessibility: Better letter spacing for readability */
+  letter-spacing: -0.025em;
 }
 
 a {
   color: var(--accent-primary);
   text-decoration: none;
   transition: color 0.3s ease;
+  /* Accessibility: Underline for better recognition */
+  text-decoration-skip-ink: auto;
 }
 
 a:hover {
   color: var(--accent-hover);
+  text-decoration: underline;
+}
+
+/* Accessibility: Better focus indicators */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+  box-shadow: 0 0 0 4px rgba(255, 92, 0, 0.2);
 }
 
 /* Selection styling */
@@ -88,19 +112,77 @@ a:hover {
   background: var(--accent-primary);
 }
 
-/* Focus styles for accessibility */
-:focus-visible {
-  outline: 2px solid var(--accent-primary);
-  outline-offset: 2px;
-  border-radius: 4px;
+/* Performance: GPU acceleration for animations */
+.animate-fade-in,
+.animate-slide-up,
+.animate-bounce,
+.animate-pulse {
+  transform: translateZ(0);
+  will-change: transform, opacity;
 }
 
-/* Reduced motion support */
+/* Accessibility: Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
-  * {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+  
+  /* Keep essential animations but make them instant */
+  .animate-bounce {
+    animation: none;
+  }
+  
+  .animate-pulse {
+    animation: none;
+  }
+}
+
+/* Accessibility: High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --text-primary: #ffffff;
+    --text-secondary: #ffffff;
+    --bg-primary: #000000;
+    --bg-secondary: #000000;
+    --accent-primary: #ffff00;
+    --accent-hover: #ffff99;
+    --border-subtle: #ffffff;
+  }
+}
+
+/* Performance: Optimize image loading */
+img {
+  height: auto;
+  max-width: 100%;
+  /* Performance: Optimize image decoding */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Accessibility: Skip to main content link */
+.skip-to-main {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--accent-primary);
+  color: var(--bg-primary);
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 1000;
+  font-weight: 600;
+}
+
+.skip-to-main:focus {
+  top: 6px;
+}
+
+/* Performance: Contain layout for better rendering */
+section {
+  contain: layout style paint;
 }

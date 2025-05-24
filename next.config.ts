@@ -11,6 +11,10 @@ const nextConfig: NextConfig = {
   
   // Optional: Add trailing slash for better compatibility with static hosting
   trailingSlash: true,
+  
+  // Performance optimizations
+  poweredByHeader: false,
+  compress: true,
 };
 
 export default nextConfig;
