@@ -8,25 +8,27 @@ export default {
   ],
   theme: {
     extend: {
-      // Custom color palette from design system
+      // Custom color palette from design system (Black/Gray/Orange)
       colors: {
-        // Background colors
-        'bg-primary': '#1A1A1A',
-        'bg-secondary': '#202020', 
-        'bg-tertiary': '#252525',
+        // Background colors (Black & Gray Foundation)
+        'bg-primary': '#0d0d0d',      // Jet Black - Background / Base layer
+        'bg-secondary': '#1a1a1a',    // Charcoal Gray - Main hex surfaces
+        'bg-tertiary': '#2e2e2e',     // Slate Gray - Edge shadows / variation
+        'bg-quaternary': '#3f3f3f',   // Steel Gray - Layer separation / contrast
         
         // Text colors
-        'text-primary': '#EEEEEE',
-        'text-secondary': '#B3B3B3',
-        'text-muted': '#808080',
+        'text-primary': '#ffffff',    // Pure white for main text
+        'text-secondary': '#e0e0e0',  // Light gray for secondary text
+        'text-muted': '#a0a0a0',      // Medium gray for captions/metadata
         
-        // Accent colors (futuristic)
-        'accent-primary': '#3291FF',
-        'accent-secondary': '#00D9FF',
-        'accent-hover': '#5AA3FF',
+        // Accent colors (Orange Highlights)
+        'accent-primary': '#ff5c00',  // Neon Orange - Highlight edges / accents
+        'accent-secondary': '#ff7300', // Lighter orange for secondary highlights
+        'accent-hover': '#ff8533',    // Even lighter orange for hover states
         
         // Utility colors
-        'border-subtle': '#333333',
+        'border-subtle': '#2e2e2e',   // Slate Gray for subtle borders
+        'border-accent': '#ff5c00',   // Orange for highlighted borders
       },
       
       // Typography system from design system
@@ -57,12 +59,12 @@ export default {
         'bold': '700',
       },
       
-      // Box shadows for subtle effects
+      // Box shadows for subtle effects (Orange glow)
       boxShadow: {
-        'glow': '0 0 20px rgba(50, 145, 255, 0.1)',
-        'glow-hover': '0 0 30px rgba(50, 145, 255, 0.2)',
-        'card': '0 4px 20px rgba(0, 0, 0, 0.3)',
-        'card-hover': '0 8px 30px rgba(0, 0, 0, 0.4)',
+        'glow': '0 0 20px rgba(255, 92, 0, 0.1)',
+        'glow-hover': '0 0 30px rgba(255, 92, 0, 0.2)',
+        'card': '0 4px 20px rgba(0, 0, 0, 0.5)',
+        'card-hover': '0 8px 30px rgba(0, 0, 0, 0.7)',
       },
       
       // Animations for micro-interactions
@@ -82,8 +84,8 @@ export default {
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
         glowPulse: {
-          '0%, 100%': { boxShadow: '0 0 20px rgba(50, 145, 255, 0.1)' },
-          '50%': { boxShadow: '0 0 30px rgba(50, 145, 255, 0.2)' },
+          '0%, 100%': { boxShadow: '0 0 20px rgba(255, 92, 0, 0.1)' },
+          '50%': { boxShadow: '0 0 30px rgba(255, 92, 0, 0.2)' },
         },
       },
     },
