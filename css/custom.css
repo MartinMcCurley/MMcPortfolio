@@ -1,0 +1,41 @@
+/* Custom project card hover colors */
+.project-card-colour {
+  background-image: none !important;
+}
+
+/* Add grayscale effect to project thumbnails with smoother transition */
+.project-thumbnail {
+  filter: grayscale(100%);
+  transition: filter 0.5s cubic-bezier(.165, .84, .44, 1), transform 0.3s ease;
+}
+
+/* Smooth transition for grayscale removal on hover */
+.project-card:hover .project-thumbnail {
+  filter: grayscale(0%);
+  transform: translateY(-10px);
+}
+
+/* Smooth transition for arrow icon movement */
+.icon-projectcard-arrow {
+  transition: transform 0.5s cubic-bezier(.165, .84, .44, 1);
+}
+
+.project-card-colour.project1 {
+  background-image: radial-gradient(circle at 50% 0, #7fcfff33, #0000 80%), radial-gradient(circle at 50% 0, #035, #0000) !important;
+}
+
+.project-card-colour.project2 {
+  background-image: radial-gradient(circle at 50% 0, rgba(255, 140, 0, 0.4), #0000 80%), radial-gradient(circle at 50% 0, #ff8c00, #0000) !important;
+}
+
+.project-card-colour.project3 {
+  background-image: radial-gradient(circle at 50% 0, rgba(128, 0, 128, 0.4), #0000 80%), radial-gradient(circle at 50% 0, #800080, #0000) !important;
+}
+
+@media (max-width: 767px) {
+  .project-card-colour.project1,
+  .project-card-colour.project2,
+  .project-card-colour.project3 {
+    opacity: 1;
+  }
+} 
