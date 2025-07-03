@@ -63,6 +63,53 @@
         .c-scrollbar_thumb {
             background: rgba(242, 242, 242, 0.2) !important;
         }
+
+        /* Additional styles for about page */
+        .about-image-placeholder {
+            background-color: #f2f2f20d;
+            border: 1px solid #f2f2f21a;
+            border-radius: 12px;
+            aspect-ratio: 4/3;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #f2f2f266;
+            font-family: Neue Montreal, sans-serif;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+        
+        .about-images-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin: 64px 0;
+        }
+        
+        .about-section {
+            margin-bottom: 64px;
+        }
+        
+        .about-content-section {
+            margin-bottom: 48px;
+        }
+        
+        .text-info-section-title {
+            color: #f2f2f2;
+            font-family: Neue Montreal, sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+        
+        .text-info-content {
+            color: #f2f2f2e6;
+            font-family: Neue Montreal, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
     </style>
 </head>
 <body class="body">
@@ -108,7 +155,7 @@
                             <img src="images/icon-external.svg" loading="lazy" alt="" class="icon-external">
                         </a>
                         <a href="/resume.pdf" target="_blank" class="chip-socials w-inline-block">
-                            <div class="text-socialnav">Resume</div>
+                            <div class="text-socialnav">CV</div>
                             <img src="images/icon-external.svg" loading="lazy" alt="" class="icon-external">
                         </a>
                     </div>
@@ -132,11 +179,99 @@
         <div class="section-info">
             <div class="container-info">
                 <div class="info-content" data-scroll data-scroll-speed="0.2">
-                    <div class="text-info-hero-serif">About Me</div>
-                    <div class="text-projectpage-body info-hero">
-                        I'm a software developer based in Glasgow, Scotland, specializing in creating modern web applications. With expertise in React, Node.js, and TypeScript, I focus on building responsive, user-friendly interfaces and robust backend systems.
-                        <br><br>
-                        My approach combines technical expertise with a strong focus on user experience, ensuring that the applications I build are not only functional but also intuitive and enjoyable to use.
+                    <div class="about-section">
+                        <div class="text-info-hero-serif">About Me</div>
+                        <div class="text-projectpage-body info-hero">
+                            I'm a software developer based in Glasgow, Scotland, specializing in creating modern web applications. With expertise in React, Node.js, and TypeScript, I focus on building responsive, user-friendly interfaces and robust backend systems.
+                            <br><br>
+                            My approach combines technical expertise with a strong focus on user experience, ensuring that the applications I build are not only functional but also intuitive and enjoyable to use.
+                        </div>
+                    </div>
+
+                    <div class="about-images-grid">
+                        <div class="about-image-placeholder">
+                            Photo placeholder 1
+                        </div>
+                        <div class="about-image-placeholder">
+                            Photo placeholder 2
+                        </div>
+                        <div class="about-image-placeholder">
+                            Photo placeholder 3
+                        </div>
+                    </div>
+
+                    <div class="about-content-section">
+                        <div class="text-info-section-title">Background</div>
+                        <div class="text-info-content">
+                            With a passion for technology and problem-solving, I've developed a comprehensive skill set that spans both frontend and backend development. My journey in software development began with a fascination for how things work and a desire to create solutions that make people's lives easier.
+                        </div>
+                        <div class="text-info-content">
+                            I specialize in JavaScript technologies, particularly React for frontend development and Node.js for backend systems. My experience includes building scalable web applications, implementing responsive designs, and creating robust APIs that power modern web experiences.
+                        </div>
+                    </div>
+
+                    <div class="about-content-section">
+                        <div class="text-info-section-title">When I'm Not Coding</div>
+                        <div class="text-info-content">
+                            Outside of development, I enjoy exploring Glasgow's vibrant tech scene and staying up-to-date with the latest industry trends. I'm passionate about continuous learning and regularly experiment with new technologies and frameworks to expand my skill set.
+                        </div>
+                        <div class="text-info-content">
+                            I believe in the power of collaboration and enjoy working with teams to bring ideas to life. Whether it's contributing to open-source projects or mentoring fellow developers, I'm always looking for ways to give back to the community that has taught me so much.
+                        </div>
+                    </div>
+
+                    <div class="about-content-section">
+                        <div class="text-info-section-title">Technical Focus</div>
+                        <div class="text-info-content">
+                            My current focus is on building performant, accessible web applications using modern JavaScript frameworks. I'm particularly interested in React ecosystem tools, TypeScript for type safety, and Node.js for backend development. I also have experience with database design, API development, and deployment strategies.
+                        </div>
+                        <div class="text-info-content">
+                            I'm committed to writing clean, maintainable code and following best practices for testing, documentation, and version control. Every project is an opportunity to learn something new and improve my craft.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-footer">
+            <div class="container-footer">
+                <div class="footer-top-wrapper">
+                    <img src="images/wch-logomark-vert-fill.svg" loading="lazy" alt="" class="logomark-footer">
+                    <div class="footer-links-column-wrapper">
+                        <div class="footer-links-column">
+                            <div class="text-footer-links-overline">NAVIGATION</div>
+                            <div class="footer-links-wrapper">
+                                <a href="/" class="footer-link">
+                                    <div class="text-footer-link">Work</div>
+                                </a>
+                                <a href="/info" class="footer-link">
+                                    <div class="text-footer-link">Info</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="footer-links-column">
+                            <div class="text-footer-links-overline">CONNECT</div>
+                            <div class="footer-links-wrapper">
+                                <a href="https://www.linkedin.com/in/martinmccurley/" target="_blank" class="footer-link">
+                                    <div class="text-footer-link">LinkedIn</div>
+                                </a>
+                                <a href="https://github.com/martinmccurley" target="_blank" class="footer-link">
+                                    <div class="text-footer-link">GitHub</div>
+                                </a>
+                                <a href="/resume.pdf" target="_blank" class="footer-link">
+                                    <div class="text-footer-link">CV</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom-wrapper">
+                    <div class="footer-bottom-left">
+                        <div class="text-footer-copyright">© 2023 Martin McCurley</div>
+                        <div class="text-under-copyright">All rights reserved.</div>
+                    </div>
+                    <div class="footer-bottom-right">
+                        <div class="text-last-updated">Last updated: December 2024</div>
                     </div>
                 </div>
             </div>
