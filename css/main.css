@@ -4121,7 +4121,16 @@ textarea.w-input, textarea.w-select {
   display: flex;
   position: absolute;
   inset: 0%;
-  transform: rotate(15deg);
+  transform: rotate(15deg) translateX(-100%);
+  transition: transform 2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.shine-wrapper.animate-initial {
+  transform: rotate(15deg) translateX(100%);
+}
+
+.shine-wrapper.animate-scroll {
+  transform: rotate(15deg) translateX(-50%);
 }
 
 .shine-big {

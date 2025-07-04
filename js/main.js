@@ -2,8 +2,10 @@
  * Custom Main JS - Minified
  * A lightweight replacement for Webflow's main.js
  */
-!function($){"use strict";function initAnimations(){$(".loading-overlay").fadeOut(800),animateHeroSection(),setupProjectCardEffects(),fadeInContent()}function fadeInContent(){// Add fade-in animation for the main content
-$("body").css("opacity",0).animate({opacity:1},1200)}function animateHeroSection(){$(".hero-text-content").css({opacity:1,transform:"translateY(0px)",transition:"opacity 0.8s ease, transform 0.8s ease"}),animateScrollIndicator()}function animateScrollIndicator(){setInterval(function(){$(".icon-scroll-down").animate({opacity:.5,marginTop:"10px"},800).animate({opacity:1,marginTop:"0px"},800)},1600)}function setupProjectCardEffects(){
+!function($){"use strict";function initAnimations(){$(".loading-overlay").fadeOut(800),animateHeroSection(),setupProjectCardEffects(),fadeInContent(),initShineEffect()}function fadeInContent(){// Add fade-in animation for the main content
+$("body").css("opacity",0).animate({opacity:1},1200)}function animateHeroSection(){$(".hero-text-content").css({opacity:1,transform:"translateY(0px)",transition:"opacity 0.8s ease, transform 0.8s ease"}),animateScrollIndicator()}function animateScrollIndicator(){setInterval(function(){$(".icon-scroll-down").animate({opacity:.5,marginTop:"10px"},800).animate({opacity:1,marginTop:"0px"},800)},1600)}function initShineEffect(){// Initial shine animation on page load
+setTimeout(function(){$(".shine-wrapper").addClass("animate-initial")},800);// Setup scroll-based shine animation
+var shineScrolled=false;$(window).on("scroll",function(){var scrollTop=$(window).scrollTop();if(scrollTop>100&&!shineScrolled){$(".shine-wrapper").removeClass("animate-initial").addClass("animate-scroll");shineScrolled=true}else if(scrollTop<=100&&shineScrolled){$(".shine-wrapper").removeClass("animate-scroll").addClass("animate-initial");shineScrolled=false}})}function setupProjectCardEffects(){
     $(".project-card").hover(function(){
         // Mouse enter
         $(this).find(".project-card-colour").css("opacity",.8);
