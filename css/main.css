@@ -2457,7 +2457,7 @@ textarea.w-input, textarea.w-select {
   flex-direction: column;
   align-items: center;
   padding-top: 24px;
-  padding-bottom: 200px;
+  padding-bottom: 2.5rem;
   display: flex;
   position: relative;
 }

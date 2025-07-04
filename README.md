@@ -22,6 +22,7 @@ This portfolio website presents my professional work, skills, and experience as 
 - **🎯 Project Showcase**: Detailed project presentations with hover effects
 - **🧭 Intuitive Navigation**: Work/Info toggle with animated indicators
 - **⚡ Performance Optimized**: Fast loading with lazy loading and optimized assets
+- **📝 Template System**: Reusable project page templates for streamlined development
 
 ## 🛠️ Tech Stack
 
@@ -57,6 +58,9 @@ This portfolio website presents my professional work, skills, and experience as 
 │   └── utils.js            # Utility functions
 ├── images/                 # Optimized project images and assets
 ├── fonts/                  # PP Neue Montreal font family
+├── templates/              # Reusable HTML templates
+│   ├── project-template.html # Project page template
+│   └── README.md           # Template usage guide
 ├── docs/                   # Project documentation
 └── resume.pdf              # Professional CV download
 ```
@@ -90,7 +94,22 @@ The site automatically deploys to GitHub Pages when changes are pushed to the `m
 
 **Deploy URL**: `https://martinmccurley.github.io/MMcPortfolio/`
 
-## 🎯 Recent Features
+## 🎯 Recent Features & Enhancements
+
+### Visual Improvements (December 2024)
+- **✅ Enhanced Project Section**: Reduced vertical spacing above "More Projects" for better visual hierarchy
+- **✅ Professional Project Cards**: Darkened project card colors by 50% for more subtle, professional appearance
+- **✅ Maintained Responsive Design**: All improvements work seamlessly across device sizes
+
+### Development Workflow (December 2024)
+- **✅ Reusable Project Template**: Created comprehensive `templates/project-template.html` with 22 customizable placeholders
+- **✅ Complete Documentation**: Detailed usage guide in `templates/README.md`
+- **✅ Streamlined Development**: Easy project page creation with placeholder-based system
+
+### Technical Enhancements
+- **✅ SEO Optimization**: Proper meta tags and structured content
+- **✅ Performance Optimizations**: Lazy loading and optimized scripts
+- **✅ Responsive Design**: Mobile-first approach with modern CSS features
 
 ### Dynamic Shine Effect
 The hero section features an innovative shine animation that:
@@ -112,6 +131,12 @@ The hero section features an innovative shine animation that:
 - **CSS**: Mobile-first responsive design with modern features
 - **JavaScript**: ES6+ syntax with performance optimization
 - **Performance**: Lazy loading, optimized animations, minimal dependencies
+
+### Template System
+- **Project Templates**: Use `templates/project-template.html` for new projects
+- **22 Placeholders**: Easy customization with clearly defined variables
+- **Documentation**: Complete usage guide in `templates/README.md`
+- **Best Practices**: Consistent structure and SEO optimization
 
 ### Browser Support
 - ✅ Chrome (latest)
@@ -137,7 +162,7 @@ The hero section features an innovative shine animation that:
 ### Colors
 - **Background**: Deep blacks and subtle grays
 - **Accents**: Professional blue and white highlights
-- **Interactive**: Smooth hover state transitions
+- **Interactive**: Smooth hover state transitions (now 50% darker for subtlety)
 
 ### Animations
 - **Duration**: < 500ms for UI interactions
@@ -151,12 +176,14 @@ The hero section features an innovative shine animation that:
 - [ ] Core Web Vitals optimization
 - [ ] Enhanced accessibility features
 - [ ] SEO improvements with structured data
+- [ ] Project filtering/categorization system
 
 ### Long-term
 - [ ] Dark mode implementation
 - [ ] Contact form integration
 - [ ] Blog section for technical articles
 - [ ] CMS integration for easier content updates
+- [ ] Additional template types (blog posts, case studies)
 
 ## 🤝 Connect
 

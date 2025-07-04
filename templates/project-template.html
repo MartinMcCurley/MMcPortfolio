@@ -2,14 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Info — Martin McCurley</title>
-    <meta content="Software developer specializing in modern web applications. Based in Glasgow, Scotland." name="description">
-    <meta content="Martin McCurley — Software Developer" property="og:title">
-    <meta content="Software developer specializing in modern web applications. Based in Glasgow, Scotland." property="og:description">
+    <title>{{PROJECT_TITLE}} — Martin McCurley</title>
+    <meta content="{{PROJECT_DESCRIPTION}}" name="description">
+    <meta content="{{PROJECT_TITLE}} — Martin McCurley" property="og:title">
+    <meta content="{{PROJECT_DESCRIPTION}}" property="og:description">
     <meta content="images/opengraph.png" property="og:image">
-    <meta content="Martin McCurley — Software Developer" property="twitter:title">
-    <meta content="Software developer specializing in modern web applications. Based in Glasgow, Scotland." property="twitter:description">
-    <meta content="https://martinmccurley.com/images/opengraph.png" property="twitter:image">
     <meta property="og:type" content="website">
     <meta content="summary_large_image" name="twitter:card">
     <meta content="width=device-width, initial-scale=1" name="viewport">
@@ -64,13 +61,46 @@
             background: rgba(242, 242, 242, 0.2) !important;
         }
 
-        /* Additional styles for about page */
-        .about-image-placeholder {
+        /* Project page specific styles */
+        .project-detail-section {
+            padding: 80px 72px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .project-detail-container {
+            max-width: 1200px;
+            width: 100%;
+        }
+        
+        .project-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            margin-bottom: 80px;
+        }
+        
+        .project-detail-content h3 {
+            color: #f2f2f2;
+            font-family: Neue Montreal, sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+        
+        .project-detail-content p {
+            color: #f2f2f2e6;
+            font-family: Neue Montreal, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        
+        .project-image-placeholder {
             background-color: #f2f2f20d;
             border: 1px solid #f2f2f21a;
-            border-radius: 12px;
-            aspect-ratio: 4/3;
-            width: 100%;
+            border-radius: 16px;
+            aspect-ratio: 16/9;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -80,35 +110,29 @@
             margin-bottom: 24px;
         }
         
-        .about-images-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 24px;
-            margin: 64px 0;
+        @media screen and (max-width: 991px) {
+            .project-detail-section {
+                padding: 64px 48px;
+            }
+            
+            .project-detail-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
         }
         
-        .about-section {
-            margin-bottom: 64px;
-        }
-        
-        .about-content-section {
-            margin-bottom: 48px;
-        }
-        
-        .text-info-section-title {
-            color: #f2f2f2;
-            font-family: Neue Montreal, sans-serif;
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 24px;
-        }
-        
-        .text-info-content {
-            color: #f2f2f2e6;
-            font-family: Neue Montreal, sans-serif;
-            font-size: 16px;
-            line-height: 1.6;
-            margin-bottom: 16px;
+        @media screen and (max-width: 767px) {
+            .project-detail-section {
+                padding: 48px 24px;
+            }
+            
+            .project-detail-grid {
+                gap: 32px;
+            }
+            
+            .project-detail-content h3 {
+                font-size: 20px;
+            }
         }
     </style>
 </head>
@@ -119,6 +143,7 @@
     </div>
     
     <div class="locomotive-scroll" data-scroll-container>
+        <!-- Full Header Navigation -->
         <div style="opacity:1" class="section-nav">
             <div class="nav-bar">
                 <div class="nav-left-wrapper">
@@ -138,7 +163,7 @@
                         <a href="/" class="nav-toggle work" id="nav-work">
                             <div class="text-nav-toggle">Work</div>
                         </a>
-                        <a href="info.html" class="nav-toggle" id="nav-info">
+                        <a href="/info" class="nav-toggle" id="nav-info">
                             <div class="text-nav-toggle">Info</div>
                         </a>
                         <div class="nav-indicator-pill" id="nav-pill"></div>
@@ -163,76 +188,97 @@
             </div>
         </div>
         
-        <div class="section-info-hero desktop">
-            <div class="container-info hero">
-                <div class="content-info-hero">
-                    <div class="text-info-hero-serif">About Me</div>
-                    <div class="text-projectpage-body info-hero">
-                        I'm a software developer based in Glasgow, Scotland, specializing in creating modern web applications. With expertise in React, Node.js, and TypeScript, I focus on building responsive, user-friendly interfaces and robust backend systems.
-                        <br><br>
-                        My approach combines technical expertise with a strong focus on user experience, ensuring that the applications I build are not only functional but also intuitive and enjoyable to use.
+        <div class="section-back">
+            <a href="/" class="button-project-back w-inline-block" data-scroll data-scroll-speed="1">
+                <div class="text-button">Back to Projects</div>
+            </a>
+        </div>
+        
+        <div class="section-banner {{PROJECT_CLASS}}">
+            <div class="container-banner">
+                <div class="project-title-hero-wrapper">
+                    <div class="title-wrapper">
+                        <div class="text-hero project-title">{{PROJECT_TITLE}}</div>
+                        <div class="text-projectpage-year">{{PROJECT_TYPE}}, {{PROJECT_YEAR}}</div>
                     </div>
+                </div>
+                <div class="project-banner-image-wrapper">
+                    <img src="{{PROJECT_BANNER_IMAGE}}" loading="lazy" alt="{{PROJECT_TITLE}}" class="image-project-banner">
                 </div>
             </div>
         </div>
-
-        <div class="section-info">
-            <div class="container-info">
-                <div class="info-content" data-scroll data-scroll-speed="0.2">
-                    <div class="about-section">
-                        <div class="text-info-hero-serif">About Me</div>
-                        <div class="text-projectpage-body info-hero">
-                            I'm a software developer based in Glasgow, Scotland, specializing in creating modern web applications. With expertise in React, Node.js, and TypeScript, I focus on building responsive, user-friendly interfaces and robust backend systems.
-                            <br><br>
-                            My approach combines technical expertise with a strong focus on user experience, ensuring that the applications I build are not only functional but also intuitive and enjoyable to use.
-                        </div>
-                    </div>
-
-                    <div class="about-images-grid">
-                        <div class="about-image-placeholder">
-                            Photo placeholder 1
-                        </div>
-                        <div class="about-image-placeholder">
-                            Photo placeholder 2
-                        </div>
-                        <div class="about-image-placeholder">
-                            Photo placeholder 3
-                        </div>
-                    </div>
-
-                    <div class="about-content-section">
-                        <div class="text-info-section-title">Background</div>
-                        <div class="text-info-content">
-                            With a passion for technology and problem-solving, I've developed a comprehensive skill set that spans both frontend and backend development. My journey in software development began with a fascination for how things work and a desire to create solutions that make people's lives easier.
-                        </div>
-                        <div class="text-info-content">
-                            I specialize in JavaScript technologies, particularly React for frontend development and Node.js for backend systems. My experience includes building scalable web applications, implementing responsive designs, and creating robust APIs that power modern web experiences.
-                        </div>
-                    </div>
-
-                    <div class="about-content-section">
-                        <div class="text-info-section-title">When I'm Not Coding</div>
-                        <div class="text-info-content">
-                            Outside of development, I enjoy exploring Glasgow's vibrant tech scene and staying up-to-date with the latest industry trends. I'm passionate about continuous learning and regularly experiment with new technologies and frameworks to expand my skill set.
-                        </div>
-                        <div class="text-info-content">
-                            I believe in the power of collaboration and enjoy working with teams to bring ideas to life. Whether it's contributing to open-source projects or mentoring fellow developers, I'm always looking for ways to give back to the community that has taught me so much.
-                        </div>
-                    </div>
-
-                    <div class="about-content-section">
-                        <div class="text-info-section-title">Technical Focus</div>
-                        <div class="text-info-content">
-                            My current focus is on building performant, accessible web applications using modern JavaScript frameworks. I'm particularly interested in React ecosystem tools, TypeScript for type safety, and Node.js for backend development. I also have experience with database design, API development, and deployment strategies.
-                        </div>
-                        <div class="text-info-content">
-                            I'm committed to writing clean, maintainable code and following best practices for testing, documentation, and version control. Every project is an opportunity to learn something new and improve my craft.
+        
+        <div class="section-overview">
+            <div class="container-overview">
+                <div class="overview-left">
+                    <div class="text-callout">{{PROJECT_TAGLINE}}</div>
+                </div>
+                <div class="overview-right">
+                    <div class="overview-text-wrapper">
+                        <div class="text-overview-overline">OVERVIEW</div>
+                        <div class="text-projectpage-body">
+                            {{PROJECT_OVERVIEW}}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- Enhanced Project Details -->
+        <div class="project-detail-section">
+            <div class="project-detail-container">
+                <div class="project-detail-grid">
+                    <div class="project-detail-content">
+                        <h3>{{DETAIL_SECTION_1_TITLE}}</h3>
+                        <p>{{DETAIL_SECTION_1_PARAGRAPH_1}}</p>
+                        <p>{{DETAIL_SECTION_1_PARAGRAPH_2}}</p>
+                    </div>
+                    <div class="project-image-placeholder">
+                        {{DETAIL_SECTION_1_IMAGE_PLACEHOLDER}}
+                    </div>
+                </div>
+
+                <div class="project-detail-grid">
+                    <div class="project-image-placeholder">
+                        {{DETAIL_SECTION_2_IMAGE_PLACEHOLDER}}
+                    </div>
+                    <div class="project-detail-content">
+                        <h3>{{DETAIL_SECTION_2_TITLE}}</h3>
+                        <p>{{DETAIL_SECTION_2_PARAGRAPH_1}}</p>
+                        <p>{{DETAIL_SECTION_2_PARAGRAPH_2}}</p>
+                    </div>
+                </div>
+
+                <div class="project-detail-grid">
+                    <div class="project-detail-content">
+                        <h3>{{DETAIL_SECTION_3_TITLE}}</h3>
+                        <p>{{DETAIL_SECTION_3_PARAGRAPH_1}}</p>
+                        <p>{{DETAIL_SECTION_3_PARAGRAPH_2}}</p>
+                    </div>
+                    <div class="project-image-placeholder">
+                        {{DETAIL_SECTION_3_IMAGE_PLACEHOLDER}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-technologies">
+            <div class="container-technologies">
+                <div class="technologies-left">
+                    <div class="text-callout">TECHNOLOGIES</div>
+                </div>
+                <div class="technologies-right">
+                    <div class="technologies-text-wrapper">
+                        <div class="text-technologies-overline">TECHNOLOGIES</div>
+                        <div class="technologies-wrapper">
+                            {{TECHNOLOGY_TAGS}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
         <div class="section-footer">
             <div class="container-footer">
                 <div class="footer-top-wrapper">
@@ -244,7 +290,7 @@
                                 <a href="/" class="footer-link">
                                     <div class="text-footer-link">Work</div>
                                 </a>
-                                <a href="info.html" class="footer-link">
+                                <a href="/info" class="footer-link">
                                     <div class="text-footer-link">Info</div>
                                 </a>
                             </div>
