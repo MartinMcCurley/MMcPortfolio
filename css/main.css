@@ -4158,6 +4158,21 @@ textarea.w-input, textarea.w-select {
   font-weight: 500;
   line-height: 140%;
   display: flex;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Ensure proper spacing for paragraphs within hero about text */
+.text-hero-about p {
+  margin: 0;
+  display: block;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+.text-hero-about p:not(:last-child) {
+  margin-bottom: 4px;
 }
 
 .text-hero-about-formerly {
@@ -6779,6 +6794,9 @@ textarea.w-input, textarea.w-select {
     font-size: 5vw;
     font-weight: 500;
     line-height: 140%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
   }
 
   .text-open-to-new-opportunities {
