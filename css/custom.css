@@ -10,17 +10,53 @@
   transition: opacity 0.5s cubic-bezier(.165, .84, .44, 1);
 }
 
-/* CRITICAL: Show orange overlay on hover - this was missing! */
-.project-card:hover .project-card-colour {
-  opacity: 1;
+/* Project color backgrounds - distinct themes for visual variety */
+.project-card-colour.project1 {
+  background-image: radial-gradient(circle at 50% 0, #7fcfff33, #0000 80%), radial-gradient(circle at 50% 0, #035, #0000) !important;
 }
 
+.project-card-colour.project2 {
+  background-image: radial-gradient(circle at 50% 0, rgba(255, 140, 0, 0.4), #0000 80%), radial-gradient(circle at 50% 0, #ff8c00, #0000) !important;
+}
+
+.project-card-colour.project3 {
+  background-image: radial-gradient(circle at 50% 0, rgba(128, 0, 128, 0.4), #0000 80%), radial-gradient(circle at 50% 0, #800080, #0000) !important;
+}
+
+.project-card-colour.project4 {
+  background-image: radial-gradient(circle at 50% 0, rgba(0, 51, 85, 0.4), #0000 80%), radial-gradient(circle at 50% 0, #003355, #0000) !important;
+}
+
+/* Show colored overlay on hover - simplified approach */
+.project-card:hover .project-card-colour {
+  opacity: 1 !important;
+}
+
+/* Add grayscale effect to project thumbnails with smoother transition */
+.project-thumbnail {
+  filter: grayscale(100%);
+  transition: filter 0.5s cubic-bezier(.165, .84, .44, 1), transform 0.3s ease;
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+/* Remove grayscale and add lift effect on hover */
 .project-card:hover .project-thumbnail {
   filter: grayscale(0%);
   transform: translateY(-10px);
-  transition: transform 0.5s cubic-bezier(.165, .84, .44, 1);
 }
 
+/* Remove grayscale on mobile for better visibility */
+@media (max-width: 767px) {
+  .project-thumbnail {
+    filter: grayscale(0%);
+  }
+}
+
+/* Arrow rotation on hover */
 .icon-projectcard-arrow {
   transition: transform 0.5s cubic-bezier(.165, .84, .44, 1);
 }
@@ -29,18 +65,7 @@
   transform: rotate(-45deg);
 }
 
-/* Main project card colors - darker orange theme */
-.project-card-colour.project1 {
-  background-image: radial-gradient(circle at 50% 0, rgba(179, 89, 10, 0.4), #0000 80%), radial-gradient(circle at 50% 0, #b3590a, #0000) !important;
-}
-
-.project-card-colour.project2 {
-  background-image: radial-gradient(circle at 50% 0, rgba(179, 89, 10, 0.4), #0000 80%), radial-gradient(circle at 50% 0, #b3590a, #0000) !important;
-}
-
-.project-card-colour.project3 {
-  background-image: radial-gradient(circle at 50% 0, rgba(179, 89, 10, 0.4), #0000 80%), radial-gradient(circle at 50% 0, #b3590a, #0000) !important;
-}
+/* Duplicate section removed - styles are already defined above */
 
 /* Small Projects Grid Styles */
 .section-projects-grid {
@@ -345,6 +370,35 @@ body::-webkit-scrollbar {
   pointer-events: none;
 }
 
+/* Project page back button positioning fix */
+.section-back {
+  z-index: 11 !important;
+  top: 90px !important;
+  height: auto !important;
+  background: none !important;
+  justify-content: flex-start !important;
+}
+
+.button-project-back {
+  margin-top: 0 !important;
+  position: relative !important;
+}
+
+/* Responsive back button positioning */
+@media screen and (max-width: 767px) {
+  .section-back {
+    top: 70px !important;
+    padding: 16px !important;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .section-back {
+    top: 60px !important;
+    padding: 12px 16px !important;
+  }
+}
+
 /* Critical CSS for above-the-fold content */
 .body {
   background-color: #101010;
@@ -353,11 +407,6 @@ body::-webkit-scrollbar {
   font-family: 'Inter', sans-serif;
 }
 
-.project-thumbnail {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
 
 /* Add content-visibility for off-screen content */
 .section-projects, .section-footer {
@@ -428,8 +477,9 @@ body::-webkit-scrollbar {
 @media (max-width: 767px) {
   .project-card-colour.project1,
   .project-card-colour.project2,
-  .project-card-colour.project3 {
-    background-image: radial-gradient(circle at 50% 0, rgba(179, 89, 10, 0.3), #0000 70%), radial-gradient(circle at 50% 0, #b3590a, #0000) !important;
+  .project-card-colour.project3,
+  .project-card-colour.project4 {
+    opacity: 1;
   }
 }
 
@@ -590,6 +640,474 @@ body::-webkit-scrollbar {
 
 /* Main scroll container (replaces locomotive scroll) */
 .main-scroll-container {
-    width: 100%;
     min-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Ensure main content is visible */
+#main-content {
+    opacity: 1 !important;
+    visibility: visible !important;
+    min-height: 100vh;
+}
+
+/* Fix logo sizing - make both header and footer logos appropriately sized */
+.logomark {
+    height: 36px !important; /* Match the 2-line text height */
+}
+
+.logomark-footer {
+    height: 36px !important; /* Same size as header logo for consistency */
+}
+
+
+/* Task 4: Header Logo Navigation Styling */
+.nav-logo-link {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    display: block;
+}
+
+.nav-logo-link:hover {
+    opacity: 0.8;
+    transform: translateY(-1px);
+    text-decoration: none;
+}
+
+.nav-logo-link:active {
+    transform: translateY(0);
+}
+
+.nav-logo-link .logo-block {
+    pointer-events: none; /* Ensure click goes to link */
+}
+
+/* Ensure logo accessibility */
+.nav-logo-link:focus {
+    outline: 2px solid #f2f2f266;
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+/* Task 5: Performance Optimizations */
+
+/* Animation Performance - GPU Acceleration */
+.project-card,
+.project-card-colour,
+.project-thumbnail,
+.icon-projectcard-arrow,
+.nav-logo-link,
+.nav-pill,
+.loading-overlay {
+    will-change: transform, opacity;
+    transform: translateZ(0); /* Force GPU acceleration */
+}
+
+/* Remove will-change after animations complete */
+.project-card:not(:hover),
+.nav-logo-link:not(:hover) {
+    will-change: auto;
+}
+
+/* Optimize font rendering */
+@font-face {
+    font-family: 'Neue Montreal';
+    font-display: swap; /* Improve loading performance */
+}
+
+/* Responsive Image Optimization */
+.image-project-banner,
+.logomark,
+.logomark-footer {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+.image-project-banner {
+    aspect-ratio: 2/1;
+    background: #f2f2f20d;
+}
+
+/* Loading State Optimization */
+.loading-overlay {
+    contain: layout style paint; /* Optimize rendering */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+/* Animation Container Optimization */
+.main-scroll-container {
+    contain: layout; /* Optimize reflows */
+}
+
+/* Critical Resource Loading Hints */
+.logomark {
+    image-rendering: crisp-edges; /* Optimize SVG rendering */
+    image-rendering: -webkit-optimize-contrast;
+}
+
+/* Intersection Observer Performance */
+.project-card-outline {
+    contain: layout style; /* Improve scroll performance */
+}
+
+/* Memory Management for Large Lists */
+.projects-grid {
+    contain: layout style;
+}
+
+/* Performance-Optimized Transitions */
+.project-card {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reduce motion for accessibility and performance */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    /* Remove will-change for reduced motion */
+    .project-card,
+    .project-card-colour,
+    .project-thumbnail,
+    .icon-projectcard-arrow,
+    .nav-logo-link,
+    .nav-pill,
+    .loading-overlay {
+        will-change: auto;
+        transform: none;
+    }
+}
+
+/* WebP Support with Fallback */
+.webp .project-thumbnail {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="56"><rect width="100" height="56" fill="%23f2f2f20d"/></svg>');
+}
+
+/* Performance Monitoring Styles */
+.performance-indicator {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #00ff00;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-family: monospace;
+    font-size: 12px;
+    z-index: 9999;
+    display: none;
+    opacity: 0.7;
+}
+
+.performance-indicator.show {
+    display: block;
+}
+
+/* Critical Path CSS Optimization */
+.section-nav {
+    contain: layout style; /* Optimize header rendering */
+}
+
+.nav-bar {
+    contain: layout; /* Optimize nav bar rendering */
+}
+
+/* Task 7: Cross-Browser Compatibility Enhancements */
+
+/* CSS Grid Fallbacks for IE11/Edge Legacy */
+@supports not (display: grid) {
+    .projects-grid {
+        display: flex;
+        flex-wrap: wrap;
+        margin: -24px; /* Negative margin to account for padding */
+    }
+    
+    .project-card-small {
+        flex: 0 0 calc(50% - 48px);
+        margin: 24px;
+        min-width: 300px;
+    }
+    
+    @media screen and (max-width: 767px) {
+        .project-card-small {
+            flex: 0 0 calc(100% - 48px);
+        }
+    }
+}
+
+/* Flexbox Vendor Prefixes for Legacy Support */
+.nav-bar,
+.nav-left-wrapper,
+.nav-pill-wrapper,
+.nav-right-wrapper,
+.footer-top-wrapper,
+.footer-links-column,
+.footer-links-wrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.nav-bar {
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+/* Transform Vendor Prefixes */
+.project-card,
+.project-card-colour,
+.project-thumbnail,
+.icon-projectcard-arrow,
+.nav-logo-link {
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+/* Transition Vendor Prefixes */
+.project-card,
+.project-card-colour,
+.nav-logo-link,
+.project-thumbnail,
+.icon-projectcard-arrow {
+    -webkit-transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                        opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    -moz-transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                     opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    -ms-transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                    opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Backdrop Filter Fallbacks */
+.loading-overlay {
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    /* Fallback for unsupported browsers */
+    background: rgba(16, 16, 16, 0.9);
+}
+
+@supports not (backdrop-filter: blur(20px)) {
+    .loading-overlay {
+        background: rgba(16, 16, 16, 0.95);
+    }
+}
+
+
+
+/* CSS Variables Fallbacks */
+.body {
+    background-color: #101010; /* Fallback */
+    background-color: var(--background, #101010);
+    color: #f2f2f2; /* Fallback */
+    color: var(--on-background, #f2f2f2);
+}
+
+/* Position Sticky Fallbacks */
+@supports not (position: sticky) {
+    .section-nav {
+        position: fixed;
+    }
+}
+
+/* Will-change Cleanup for Legacy Browsers */
+@supports not (will-change: transform) {
+    .project-card,
+    .project-card-colour,
+    .project-thumbnail,
+    .icon-projectcard-arrow,
+    .nav-logo-link,
+    .nav-pill,
+    .loading-overlay {
+        will-change: auto;
+    }
+}
+
+/* Firefox-specific Fixes */
+@-moz-document url-prefix() {
+    /* Firefox scrollbar styling */
+    html {
+        scrollbar-width: thin;
+        scrollbar-color: rgba(242, 242, 242, 0.2) transparent;
+    }
+    
+    /* Firefox flex shrink fix */
+    .nav-left-wrapper,
+    .nav-right-wrapper {
+        -moz-flex-shrink: 1;
+        flex-shrink: 1;
+    }
+}
+
+/* WebKit-specific Fixes (Safari/Chrome) */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    /* Safari-specific backdrop filter fix */
+    .loading-overlay {
+        -webkit-backdrop-filter: blur(20px);
+    }
+    
+    /* WebKit scrollbar styling */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+    
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: rgba(242, 242, 242, 0.2);
+        border-radius: 4px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+        background: rgba(242, 242, 242, 0.3);
+    }
+}
+
+/* Edge Legacy Specific Fixes */
+@supports (-ms-ime-align: auto) {
+    .projects-grid {
+        display: -ms-grid;
+        -ms-grid-columns: 1fr 1fr;
+        -ms-grid-rows: auto;
+    }
+    
+    .project-card-small:nth-child(odd) {
+        -ms-grid-column: 1;
+    }
+    
+    .project-card-small:nth-child(even) {
+        -ms-grid-column: 2;
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+    /* Remove hover effects on touch devices */
+    .project-card:hover .project-card-colour {
+        opacity: 0;
+    }
+    
+    /* Increase touch targets */
+    .nav-toggle,
+    .footer-link,
+    .project-card {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Prevent 300ms tap delay */
+    .nav-toggle,
+    .project-card,
+    .footer-link,
+    .nav-logo-link {
+        touch-action: manipulation;
+        -ms-touch-action: manipulation;
+    }
+}
+
+/* High DPI Display Support */
+@media (-webkit-min-device-pixel-ratio: 2),
+       (min-resolution: 192dpi),
+       (min-resolution: 2dppx) {
+    .logomark,
+    .logomark-footer {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* Reduced Motion Support (Enhanced) */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        -webkit-animation-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        -webkit-animation-iteration-count: 1 !important;
+        animation-iteration-count: 1 !important;
+        -webkit-transition-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .loading-overlay,
+    .nav-menu-button,
+    .mobile-popup-menu {
+        display: none !important;
+    }
+    
+    .section-nav {
+        position: static !important;
+        background: none !important;
+    }
+    
+    body {
+        background: white !important;
+        color: black !important;
+    }
+}
+
+/* IE11 Specific Fixes */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    /* IE11 flex fixes */
+    .nav-left-wrapper,
+    .nav-right-wrapper {
+        -ms-flex: 1;
+        flex: 1;
+    }
+    
+    .nav-pill-wrapper {
+        -ms-flex: 0 0 180px;
+        flex: 0 0 180px;
+    }
+    
+    /* IE11 grid fallback already covered above */
+    .projects-grid {
+        display: block;
+    }
+    
+    .project-card-small {
+        display: inline-block;
+        width: calc(50% - 24px);
+        margin: 12px;
+        vertical-align: top;
+    }
+}
+
+/* Samsung Internet Specific Fixes */
+@supports (-webkit-appearance: none) and (stroke-color: transparent) {
+    .project-card {
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+    }
 } 

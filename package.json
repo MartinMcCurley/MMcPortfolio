@@ -1,0 +1,34 @@
+{
+  "name": "mmcportfolio",
+  "version": "1.0.0",
+  "description": "[![Live Site](https://img.shields.io/badge/Live%20Site-martinmccurley.github.io-blue?style=for-the-badge)](https://martinmccurley.github.io/MMcPortfolio/)\r [![GitHub Pages](https://img.shields.io/badge/Deployed%20on-GitHub%20Pages-green?style=for-the-badge)](https://pages.github.com/)",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "playwright-mcp": "npx @playwright/mcp@latest",
+    "playwright": "npx playwright",
+    "serve": "npx http-server . -p 3000 -o"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MartinMcCurley/MMcPortfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/MartinMcCurley/MMcPortfolio/issues"
+  },
+  "homepage": "https://github.com/MartinMcCurley/MMcPortfolio#readme",
+  "dependencies": {
+    "@playwright/mcp": "github:microsoft/playwright-mcp",
+    "playwright": "^1.56.0-alpha-1756505518000"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

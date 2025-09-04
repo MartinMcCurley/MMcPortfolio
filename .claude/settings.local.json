@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(claude mcp:*)",
+      "Read(C:\\Users\\marti/**)",
+      "Read(C:\\Users\\marti/**)",
+      "mcp__ide__executeCode",
+      "Bash(git log:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
