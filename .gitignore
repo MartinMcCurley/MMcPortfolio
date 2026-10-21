@@ -28,7 +28,6 @@ yarn-debug.log*
 yarn-error.log*
 .npm
 .yarn/
-package-lock.json
 yarn.lock
 
 # Environment files
@@ -76,4 +75,4 @@ yarn-debug.log*
 yarn-error.log*
 
 # Cache
-.eslintcache 
+.eslintcache

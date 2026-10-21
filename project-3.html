@@ -2,129 +2,109 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Weather Dashboard — Martin McCurley</title>
+    <meta name="robots" content="noindex">
+    <title>Weather Dashboard - Martin McCurley</title>
     <meta content="A weather dashboard with real-time data visualization." name="description">
-    <meta content="Weather Dashboard — Martin McCurley" property="og:title">
+    <meta content="Weather Dashboard - Martin McCurley" property="og:title">
     <meta content="A weather dashboard with real-time data visualization." property="og:description">
-    <meta content="images/opengraph.png" property="og:image">
+    <meta content="https://martinmccurley.github.io/MMcPortfolio/images/opengraph.png" property="og:image">
     <meta property="og:type" content="website">
     <meta content="summary_large_image" name="twitter:card">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link href="css/main.css" rel="stylesheet" type="text/css">
     <link href="css/custom.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com" rel="preconnect">
-    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
-    <script src="js/webfont.js" type="text/javascript" defer></script>
-    <script type="text/javascript">
-        WebFont.load({
-            google: {
-                families: ["Inter:100,200,300,regular,500,600,700,800,900", "JetBrains Mono:100,200,300,regular,500,600,700,800"]
-            }
-        });
-    </script>
-    <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
+    <link href="images/wch-webclip.png" rel="shortcut icon" type="image/x-icon">
     <link href="images/wch-webclip.png" rel="apple-touch-icon">
-    
-    <!-- Hide Scrollbar --> 
-    <style>
-        body {
-            -ms-overflow-style: none;  /* IE 10+ */
-            overflow: -moz-scrollbars-none;  /* Firefox */
-        }
 
-        body::-webkit-scrollbar {
-            display: none; /* Safari and Chrome */
-        }
-    </style>
+    <!-- Hide Scrollbar -->
 
     <!-- Add transition for body fade-in -->
-    <style>
-        body {
-            transition: opacity 1.2s ease-in-out;
-        }
-        
-        html.has-scroll-smooth {
-            overflow: hidden;
-            position: fixed;
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;  
-        }
-        
-        .locomotive-scroll {
-            height: 100%;
-            width: 100%;
-        }
-        
-        .c-scrollbar_thumb {
-            background: rgba(242, 242, 242, 0.2) !important;
-        }
-    </style>
+<noscript><style>.loading-overlay{display:none!important}body,.hero-text-content{opacity:1!important}</style></noscript>
 </head>
-<body class="body">
+<body class="body project-page">
     <div data-w-id="a91daa17-edea-3045-e068-85775e828427" class="loading-overlay">
         <img src="images/loading-dots.gif" loading="lazy" alt="" class="logo-loading">
         <div class="text-loading">Just a moment.</div>
     </div>
-    
-    <div class="locomotive-scroll" data-scroll-container>
+
+    <div class="main-scroll-container">
         <!-- Full Header Navigation -->
         <div style="opacity:1" class="section-nav">
-            <div class="nav-bar">
-                <div class="nav-left-wrapper">
-                    <a href="/" class="nav-logo-link w-inline-block" data-scroll data-scroll-speed="1">
-                        <div class="logo-block">
-                            <img src="images/wch-logomark-vert-fill.svg" loading="lazy" alt="" class="logomark">
-                            <div class="logo-text">
-                                <div class="text-logo">Martin McCurley</div>
-                                <div class="text-underlogo">Software Developer</div>
-                            </div>
+        <div class="nav-bar">
+            <div class="nav-left-wrapper">
+                <a href="index.html" class="nav-logo-link w-inline-block">
+                    <div class="logo-block">
+                        <img src="images/wch-logomark-vert-fill.svg" loading="lazy" alt="" class="logomark">
+                        <div class="logo-text">
+                            <div class="text-logo">Martin McCurley</div>
+                            <div class="text-underlogo">Software Developer</div>
                         </div>
-                    </a>
-                </div>
-                <div class="nav-pill-wrapper">
-                    <div class="nav-indicator-glow" id="nav-glow"></div>
-                    <div class="nav-pill">
-                        <a href="/" class="nav-toggle work" id="nav-work">
-                            <div class="text-nav-toggle">Work</div>
-                        </a>
-                        <a href="/info" class="nav-toggle" id="nav-info">
-                            <div class="text-nav-toggle">Info</div>
-                        </a>
-                        <div class="nav-indicator-pill" id="nav-pill"></div>
                     </div>
+                </a>
+            </div>
+            <div class="nav-pill-wrapper">
+                <div class="nav-indicator-glow" id="nav-glow"></div>
+                <div class="nav-pill">
+                    <a href="index.html" class="nav-toggle work" id="nav-work">
+                        <div class="text-nav-toggle">Work</div>
+                    </a>
+                    <a href="info.html" class="nav-toggle" id="nav-info">
+                        <div class="text-nav-toggle">Info</div>
+                    </a>
+                    <div class="nav-indicator-pill" id="nav-pill"></div>
                 </div>
-                <div class="nav-right-wrapper">
-                    <div class="chip-socials-wrapper">
-                        <a href="https://www.linkedin.com/in/martinmccurley/" target="_blank" class="chip-socials w-inline-block">
-                            <div class="text-socialnav">LinkedIn</div>
-                            <img src="images/icon-external.svg" loading="lazy" alt="" class="icon-external">
-                        </a>
-                        <a href="https://github.com/martinmccurley" target="_blank" class="chip-socials w-inline-block">
-                            <div class="text-socialnav">GitHub</div>
-                            <img src="images/icon-external.svg" loading="lazy" alt="" class="icon-external">
-                        </a>
-                        <a href="/resume.pdf" target="_blank" class="chip-socials w-inline-block">
+            </div>
+            <div class="nav-right-wrapper">
+                <div class="chip-socials-wrapper">
+                    <a href="https://www.linkedin.com/in/martinmccurley/" target="_blank" rel="noopener noreferrer" class="chip-socials w-inline-block">
+                        <div class="text-socialnav">LinkedIn</div>
+                        <img src="images/icon-external.svg" loading="lazy" alt="" class="icon-external">
+                    </a>
+                    <a href="https://github.com/martinmccurley" target="_blank" rel="noopener noreferrer" class="chip-socials w-inline-block">
+                        <div class="text-socialnav">GitHub</div>
+                        <img src="images/icon-external.svg" loading="lazy" alt="" class="icon-external">
+                    </a>
+                                            <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="chip-socials w-inline-block">
                             <div class="text-socialnav">CV</div>
                             <img src="images/icon-external.svg" loading="lazy" alt="" class="icon-external">
                         </a>
-                    </div>
                 </div>
+                <button type="button" class="nav-menu-button w-inline-block" aria-label="Open social links" aria-expanded="false" aria-controls="mobile-social-links">
+                    <img src="images/icon-contact.svg" loading="lazy" alt="" class="icon-contact">
+                    <img src="images/icon-close.svg" loading="lazy" alt="" class="icon-contact-close" style="display: none;">
+                </button>
             </div>
         </div>
-        
+    </div>
+
+    <div id="mobile-social-links" class="mobile-popup-menu" style="display: none;">
+        <a href="https://www.linkedin.com/in/martinmccurley/" target="_blank" rel="noopener noreferrer" class="popup-menu-item w-inline-block">
+            <div class="text-popup-menu">LinkedIn</div>
+            <img src="images/icon-open.svg" loading="lazy" alt="" class="icon-popup-external">
+        </a>
+        <a href="https://github.com/martinmccurley" target="_blank" rel="noopener noreferrer" class="popup-menu-item w-inline-block">
+            <div class="text-popup-menu">GitHub</div>
+            <img src="images/icon-open.svg" loading="lazy" alt="" class="icon-popup-external">
+        </a>
+        <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="popup-menu-item w-inline-block">
+            <div class="text-popup-menu">Resume</div>
+            <img src="images/icon-open.svg" loading="lazy" alt="" class="icon-popup-external">
+        </a>
+    </div>
+
+
+<main id="main-content" tabindex="-1">
         <div class="section-back">
-            <a href="/" class="button-project-back w-inline-block" data-scroll data-scroll-speed="1">
+            <a href="index.html" class="button-project-back w-inline-block" data-scroll data-scroll-speed="1">
                 <div class="text-button">Back to Projects</div>
             </a>
         </div>
-        
+
         <div class="section-banner thn">
             <div class="container-banner">
                 <div class="project-title-hero-wrapper">
                     <div class="title-wrapper">
-                        <div class="text-hero project-title">Weather Dashboard</div>
+                        <h1 class="text-hero project-title">Weather Dashboard</h1>
                         <div class="text-projectpage-year">API Integration, 2022</div>
                     </div>
                 </div>
@@ -133,7 +113,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="section-overview">
             <div class="container-overview">
                 <div class="overview-left">
@@ -159,15 +139,15 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="section-technologies">
             <div class="container-technologies">
                 <div class="technologies-left">
-                    <div class="text-callout">TECHNOLOGIES</div>
+                    <h2 class="text-callout">Technologies</h2>
                 </div>
                 <div class="technologies-right">
                     <div class="technologies-text-wrapper">
-                        <div class="text-technologies-overline">TECHNOLOGIES</div>
+
                         <div class="technologies-wrapper">
                             <div class="technology-tag">HTML5</div>
                             <div class="technology-tag">CSS3</div>
@@ -180,7 +160,8 @@
                 </div>
             </div>
         </div>
-        
+
+        </main>
         <!-- Footer -->
         <div class="section-footer">
             <div class="container-footer">
@@ -190,10 +171,10 @@
                         <div class="footer-links-column">
                             <div class="text-footer-links-overline">NAVIGATION</div>
                             <div class="footer-links-wrapper">
-                                <a href="/" class="footer-link">
+                                <a href="index.html" class="footer-link">
                                     <div class="text-footer-link">Work</div>
                                 </a>
-                                <a href="/info" class="footer-link">
+                                <a href="info.html" class="footer-link">
                                     <div class="text-footer-link">Info</div>
                                 </a>
                             </div>
@@ -201,13 +182,13 @@
                         <div class="footer-links-column">
                             <div class="text-footer-links-overline">CONNECT</div>
                             <div class="footer-links-wrapper">
-                                <a href="https://www.linkedin.com/in/martinmccurley/" target="_blank" class="footer-link">
+                                <a href="https://www.linkedin.com/in/martinmccurley/" target="_blank" rel="noopener noreferrer" class="footer-link">
                                     <div class="text-footer-link">LinkedIn</div>
                                 </a>
-                                <a href="https://github.com/martinmccurley" target="_blank" class="footer-link">
+                                <a href="https://github.com/martinmccurley" target="_blank" rel="noopener noreferrer" class="footer-link">
                                     <div class="text-footer-link">GitHub</div>
                                 </a>
-                                <a href="/resume.pdf" target="_blank" class="footer-link">
+                                <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="footer-link">
                                     <div class="text-footer-link">CV</div>
                                 </a>
                             </div>
@@ -216,25 +197,23 @@
                 </div>
                 <div class="footer-bottom-wrapper">
                     <div class="footer-bottom-left">
-                        <div class="text-footer-copyright">© 2025 Martin McCurley</div>
+                        <div class="text-footer-copyright">© <span data-copyright-year>2026</span> Martin McCurley</div>
                         <div class="text-under-copyright">All rights reserved.</div>
                     </div>
                     <div class="footer-bottom-right">
-                        <div class="text-last-updated" id="last-updated">Last updated: December 2024</div>
+                        <div class="text-last-updated" id="last-updated">Last updated: October 2026</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
+
     <!-- Scripts -->
-    <script src="js/jquery-3.5.1.min.js" type="text/javascript" defer></script>
+    <script src="js/jquery-3.7.1.min.js" type="text/javascript" defer></script>
+    <script src="js/logger.js" defer></script>
     <script src="js/main.js" type="text/javascript" defer></script>
-    
-    <link rel="stylesheet" href="css/locomotive-scroll.css">
-    <script src="js/locomotive-scroll.min.js" defer></script>
-    <script src="js/locomotive-init.js" defer></script>
-    
+
+
     <!-- Add a fallback script to hide the loading overlay -->
     <script>
         // Fallback to hide loading overlay after 3 seconds in case JavaScript fails
@@ -248,4 +227,4 @@
         });
     </script>
 </body>
-</html> 
+</html>

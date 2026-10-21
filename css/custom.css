@@ -273,9 +273,9 @@
 
 /* Replace automatic animation with scroll-based movement */
 .shine-wrapper {
-  /* Remove the automatic animation */
-  transform: rotate(15deg);
-  transition: transform 0.5s ease-out;
+  transform: rotate(15deg) translateX(-100%);
+  transition: transform 2s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
 }
 
 /* Add transition for body fade-in */
@@ -295,7 +295,7 @@ html.has-scroll-smooth {
   left: 0;
   right: 0;
   top: 0;
-  bottom: 0;  
+  bottom: 0;
 }
 
 .locomotive-scroll {
@@ -370,35 +370,6 @@ body::-webkit-scrollbar {
   pointer-events: none;
 }
 
-/* Project page back button positioning fix */
-.section-back {
-  z-index: 11 !important;
-  top: 90px !important;
-  height: auto !important;
-  background: none !important;
-  justify-content: flex-start !important;
-}
-
-.button-project-back {
-  margin-top: 0 !important;
-  position: relative !important;
-}
-
-/* Responsive back button positioning */
-@media screen and (max-width: 767px) {
-  .section-back {
-    top: 70px !important;
-    padding: 16px !important;
-  }
-}
-
-@media screen and (max-width: 479px) {
-  .section-back {
-    top: 60px !important;
-    padding: 12px 16px !important;
-  }
-}
-
 /* Critical CSS for above-the-fold content */
 .body {
   background-color: #101010;
@@ -419,7 +390,7 @@ body::-webkit-scrollbar {
   .section-projects-grid {
     padding: 80px 48px;
   }
-  
+
   .container-projects-grid {
     gap: 64px;
   }
@@ -429,41 +400,41 @@ body::-webkit-scrollbar {
   .section-projects-grid {
     padding: 60px 24px;
   }
-  
+
   .container-projects-grid {
     gap: 48px;
   }
-  
+
   .projects-grid {
     grid-template-columns: 1fr;
     gap: 32px;
   }
-  
+
   .text-projects-grid-title {
     font-size: 36px;
   }
-  
+
   .text-projects-grid-subtitle {
     font-size: 16px;
   }
-  
+
   .project-card-small {
     min-height: 360px;
   }
-  
+
   .projectcard-small-top {
     padding: 24px 24px 20px;
   }
-  
+
   .text-projectcard-title-small {
     font-size: 20px;
   }
-  
+
   .project-thumbnail-small-placeholder {
     margin: 0 20px 20px;
     min-height: 160px;
   }
-  
+
   .project-card-colour-small.project4,
   .project-card-colour-small.project5,
   .project-card-colour-small.project6,
@@ -617,22 +588,22 @@ body::-webkit-scrollbar {
     .project-detail-container {
         padding: 0 24px;
     }
-    
+
     .project-detail-grid {
         grid-template-columns: 1fr;
         gap: 48px;
     }
-    
+
     .container-technologies {
         grid-template-columns: 1fr;
         gap: 48px;
         padding: 0 24px;
     }
-    
+
     .technologies-left .text-callout {
         font-size: 28px;
     }
-    
+
     .project-detail-content h3 {
         font-size: 20px;
     }
@@ -779,7 +750,7 @@ body::-webkit-scrollbar {
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
     }
-    
+
     /* Remove will-change for reduced motion */
     .project-card,
     .project-card-colour,
@@ -836,13 +807,13 @@ body::-webkit-scrollbar {
         flex-wrap: wrap;
         margin: -24px; /* Negative margin to account for padding */
     }
-    
+
     .project-card-small {
         flex: 0 0 calc(50% - 48px);
         margin: 24px;
         min-width: 300px;
     }
-    
+
     @media screen and (max-width: 767px) {
         .project-card-small {
             flex: 0 0 calc(100% - 48px);
@@ -869,7 +840,7 @@ body::-webkit-scrollbar {
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    
+
     -webkit-box-align: center;
     -webkit-align-items: center;
     -ms-flex-align: center;
@@ -955,7 +926,7 @@ body::-webkit-scrollbar {
         scrollbar-width: thin;
         scrollbar-color: rgba(242, 242, 242, 0.2) transparent;
     }
-    
+
     /* Firefox flex shrink fix */
     .nav-left-wrapper,
     .nav-right-wrapper {
@@ -970,21 +941,21 @@ body::-webkit-scrollbar {
     .loading-overlay {
         -webkit-backdrop-filter: blur(20px);
     }
-    
+
     /* WebKit scrollbar styling */
     ::-webkit-scrollbar {
         width: 8px;
     }
-    
+
     ::-webkit-scrollbar-track {
         background: transparent;
     }
-    
+
     ::-webkit-scrollbar-thumb {
         background: rgba(242, 242, 242, 0.2);
         border-radius: 4px;
     }
-    
+
     ::-webkit-scrollbar-thumb:hover {
         background: rgba(242, 242, 242, 0.3);
     }
@@ -997,11 +968,11 @@ body::-webkit-scrollbar {
         -ms-grid-columns: 1fr 1fr;
         -ms-grid-rows: auto;
     }
-    
+
     .project-card-small:nth-child(odd) {
         -ms-grid-column: 1;
     }
-    
+
     .project-card-small:nth-child(even) {
         -ms-grid-column: 2;
     }
@@ -1013,7 +984,7 @@ body::-webkit-scrollbar {
     .project-card:hover .project-card-colour {
         opacity: 0;
     }
-    
+
     /* Increase touch targets */
     .nav-toggle,
     .footer-link,
@@ -1021,7 +992,7 @@ body::-webkit-scrollbar {
         min-height: 44px;
         min-width: 44px;
     }
-    
+
     /* Prevent 300ms tap delay */
     .nav-toggle,
     .project-card,
@@ -1065,12 +1036,12 @@ body::-webkit-scrollbar {
     .mobile-popup-menu {
         display: none !important;
     }
-    
+
     .section-nav {
         position: static !important;
         background: none !important;
     }
-    
+
     body {
         background: white !important;
         color: black !important;
@@ -1085,17 +1056,17 @@ body::-webkit-scrollbar {
         -ms-flex: 1;
         flex: 1;
     }
-    
+
     .nav-pill-wrapper {
         -ms-flex: 0 0 180px;
         flex: 0 0 180px;
     }
-    
+
     /* IE11 grid fallback already covered above */
     .projects-grid {
         display: block;
     }
-    
+
     .project-card-small {
         display: inline-block;
         width: calc(50% - 24px);
@@ -1110,4 +1081,196 @@ body::-webkit-scrollbar {
         backface-visibility: hidden;
         -webkit-backface-visibility: hidden;
     }
-} 
+}
+
+/* Task: Hero Video Background Styles */
+
+/* Video Container - Positioned behind all content */
+.hero-video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+}
+
+/* Hero Video Styling */
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    opacity: 0.5;
+    will-change: transform;
+    transform: translate3d(-50%, -50%, 0); /* GPU acceleration */
+}
+
+/* Video Overlay for Text Readability */
+.hero-video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle closest-corner at 50% 0, rgba(242, 242, 242, 0.1), transparent 80%),
+                radial-gradient(circle at 50% 0, rgba(16, 16, 16, 0.25), transparent 60%);
+    z-index: 1;
+}
+
+/* Ensure section-hero is positioned relatively for stacking context */
+.section-hero {
+    position: relative;
+}
+
+/* Ensure hero content is above video */
+.hero-fade {
+    z-index: 5;
+}
+
+.container-hero-image {
+    position: relative;
+    z-index: 3;
+}
+
+/* Accessibility: Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .hero-video {
+        animation: none;
+        transform: translate(-50%, -50%);
+        will-change: auto;
+    }
+}
+
+/* Mobile Optimization: Hide video on small screens to save bandwidth */
+@media (max-width: 768px) {
+    .hero-video-container {
+        display: none;
+    }
+
+    /* Fallback gradient background for mobile */
+    .section-hero {
+        background-image: radial-gradient(circle closest-corner at 50% 0, #f2f2f226, #0000);
+    }
+}
+
+/* Performance: Optimize video loading on slower connections */
+@media (prefers-reduced-data: reduce) {
+    .hero-video-container {
+        display: none;
+    }
+
+    /* Fallback gradient background for reduced data */
+    .section-hero {
+        background-image: radial-gradient(circle closest-corner at 50% 0, #f2f2f226, #0000);
+    }
+}
+
+/* High refresh rate displays - smoother playback */
+@media (min-resolution: 120dpi) {
+    .hero-video {
+        image-rendering: high-quality;
+    }
+}
+
+
+
+/* Maintenance: align About and project content within the existing design. */
+.is-hidden { display: none !important; }
+#main-content:focus { outline: none; }
+.nav-menu-button { border: 0; padding: 0; background: transparent; cursor: pointer; }
+a:focus-visible, button:focus-visible { outline: 2px solid #f2f2f2; outline-offset: 5px; }
+.about-page .container-info {
+  width: min(1044px, calc(100% - 96px));
+  margin-inline: auto;
+  gap: 0;
+}
+.about-page .section-info-hero { display: flex; padding: 172px 0 64px; }
+.about-page .content-info-hero { gap: 32px; }
+.about-page .about-title {
+  text-align: left;
+  margin: 0;
+  font-family: Neue Montreal, sans-serif;
+  font-size: clamp(44px, 5vw, 72px);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -2px;
+}
+.about-page .text-projectpage-body.info-hero { padding: 0; width: 100%; max-width: 780px; margin: 0; font-size: 20px; line-height: 1.65; }
+.about-page p { margin: 0 0 20px; }
+.about-page p:last-child { margin-bottom: 0; }
+.about-page .section-info { padding: 0 0 56px; }
+.about-page .about-content-section {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 48px;
+  border-top: 1px solid #f2f2f21a;
+  padding: 40px 0;
+  margin: 0;
+}
+.about-page .text-info-section-title { margin: 0; color: #f2f2f2; font-family: Neue Montreal, sans-serif; font-size: 24px; font-weight: 500; line-height: 1.35; }
+.about-page .text-info-content { color: #f2f2f2b3; font-family: Neue Montreal, sans-serif; font-size: 18px; line-height: 1.7; }
+.project-page .section-back { position: relative; inset: auto; width: min(1044px, calc(100% - 96px)); margin: 0 auto; padding: 136px 0 24px; display: flex; justify-content: flex-start; z-index: 1; }
+.project-page .button-project-back { position: static; margin: 0; }
+.project-page .section-banner { padding: 0 0 64px; min-height: 0; }
+.project-page .container-banner,
+.project-page .container-overview,
+.project-page .project-detail-container,
+.project-page .container-technologies { width: min(1044px, calc(100% - 96px)); max-width: 1044px; margin: 0 auto; padding: 0; }
+.project-page .container-banner { gap: 32px; }
+.project-page .project-title-hero-wrapper { padding: 20px 0 0; margin: 0; width: 100%; }
+.project-page .title-wrapper { width: 100%; gap: 16px; }
+.project-page h1.project-title { margin: 0; font-size: clamp(40px, 5vw, 72px); line-height: 1.12; overflow-wrap: anywhere; }
+.project-page .project-banner-image-wrapper { width: 100%; margin: 0; }
+.project-page .image-project-banner { aspect-ratio: auto; display: block; width: 100%; height: auto; max-height: none; object-fit: contain; border-radius: 16px; }
+.project-page .section-overview,
+.project-page .project-detail-section,
+.project-page .section-technologies { padding: 40px 0; }
+.project-page .container-overview,
+.project-page .container-technologies { display: grid; grid-template-columns: 1fr 1.7fr; gap: 64px; align-items: start; }
+.project-page .overview-left, .project-page .overview-right { width: auto; min-width: 0; padding: 0; }
+.project-page .text-callout { text-align: left; font-size: 28px; line-height: 1.35; margin: 0; }
+.project-page .text-projectpage-body { font-size: 18px; line-height: 1.7; }
+.project-page .project-detail-grid { display: block; margin: 0; padding: 40px 0; border-top: 1px solid #f2f2f21a; }
+.project-page .project-detail-content { display: grid; grid-template-columns: 1fr 1.7fr; column-gap: 64px; }
+.project-page .project-detail-content h2 { grid-column: 1; grid-row: 1 / span 3; margin: 0; font-family: Neue Montreal, sans-serif; font-size: 26px; font-weight: 500; line-height: 1.3; }
+.project-page .project-detail-content p { grid-column: 2; font-size: 18px; color: #f2f2f2b3; line-height: 1.7; margin: 0 0 20px; }
+.project-page .project-detail-content p:last-child { margin-bottom: 0; }
+.project-page .section-technologies { padding-bottom: 80px; }
+.project-page .technology-tag { margin: 0; }
+.project-page .project-features-list { margin: 20px 0; }
+@media (max-width: 767px) {
+  .about-page .container-info,
+  .project-page .section-back,
+  .project-page .container-banner,
+  .project-page .container-overview,
+  .project-page .project-detail-container,
+  .project-page .container-technologies { width: calc(100% - 48px); }
+  .about-page .section-info-hero { padding: 140px 0 40px; }
+  .about-page .content-info-hero { gap: 24px; }
+  .about-page .about-title { letter-spacing: -1px; }
+  .about-page .text-projectpage-body.info-hero { font-size: 18px; }
+  .about-page .about-content-section { grid-template-columns: 1fr; gap: 20px; padding: 32px 0; }
+  .about-page .text-info-content { font-size: 17px; }
+  .project-page .section-back { padding-top: 128px; }
+  .project-page .container-overview,
+  .project-page .container-technologies,
+  .project-page .project-detail-content { grid-template-columns: 1fr; gap: 24px; }
+  .project-page .project-detail-content h2,
+  .project-page .project-detail-content p { grid-column: auto; grid-row: auto; }
+  .project-page .project-detail-content p { font-size: 17px; margin: 0; }
+  .project-page .section-banner { padding-bottom: 24px; }
+  .project-page .section-overview, .project-page .project-detail-section { padding: 24px 0; }
+  .project-page .project-detail-grid { padding: 28px 0; }
+  .project-page .text-callout { text-align: left; font-size: 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .shine-wrapper { opacity: 0; transition: none; }
+  body, #main-content { transition: none !important; }
+}
