@@ -1,0 +1,3 @@
+[submodule "MMcPortfolioPerry"]
+	path = MMcPortfolioPerry
+	url = https://github.com/MartinMcCurley/MMcPortfolio.git

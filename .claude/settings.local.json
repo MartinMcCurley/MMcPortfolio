@@ -5,7 +5,13 @@
       "Read(C:\\Users\\marti/**)",
       "Read(C:\\Users\\marti/**)",
       "mcp__ide__executeCode",
-      "Bash(git log:*)"
+      "Bash(git log:*)",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_network_requests",
+      "mcp__playwright__browser_evaluate",
+      "Bash(npm run serve:*)",
+      "mcp__playwright__browser_resize"
     ],
     "deny": [],
     "ask": []
